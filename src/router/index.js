@@ -26,28 +26,28 @@ const router = createRouter({
     routes,
 })
 
-router.beforeEach((to, from, next) => {  
-    // Determine if the route requires authentication
-    if (to.matched.some(record => record.meta.requiresAuth)) {
-        // Get value from somewhere to determine if the user is 
-        // logged in or not
-        let isLoggedIn = false;
+// router.beforeEach((to, from, next) => {  
+//     // Determine if the route requires authentication
+//     if (to.matched.some(record => record.meta.requiresAuth)) {
+//         // Get value from somewhere to determine if the user is 
+//         // logged in or not
+//         let isLoggedIn = false;
         
-        // If user is not logged in, navigate to the named "login" route 
-        // with a query string parameter indicating where to navigate to after
-        // successful login        
-        if (!isLoggedIn) {
-            // Navigate to login route
-            next({
-                name: "login",
-                query: {redirect: to.fullPath}
-            });           
-        } else {
-            next();
-        }
-    } else {
-        next();
-    }
-});
+//         // If user is not logged in, navigate to the named "login" route 
+//         // with a query string parameter indicating where to navigate to after
+//         // successful login        
+//         if (!isLoggedIn) {
+//             // Navigate to login route
+//             next({
+//                 name: "login",
+//                 query: {redirect: to.fullPath}
+//             });           
+//         } else {
+//             next();
+//         }
+//     } else {
+//         next();
+//     }
+// });
 
 export default router
